@@ -11,10 +11,12 @@ const Main = () => {
         <Fragment>
             <ColorModeScript />
             <ChakraProvider theme={theme}>
-                <ColorModeSwitcher />
+                {/* <ColorModeSwitcher /> */}
                 <Router>
                     <MainLayout>
                         <main>
+                        <ColorModeSwitcher />
+
                             <AllRoutes />
                         </main>
                     </MainLayout>
