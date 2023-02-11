@@ -1,26 +1,44 @@
-import { Container, HStack } from "@chakra-ui/react"
+import { Container, HStack,, Alert,
+    AlertIcon,
+    AlertTitle,
+    AlertDescription, } from "@chakra-ui/react"
 import { Fragment, useEffect, useState } from "react"
 import Loader from "../components/common/Loader"
 import ExchangeCard from "../components/exchange/ExchangeCard"
 import { fetchExchanges } from "../services/api"
+import Error from "../components/common/Error"
 
 const Exchanges = () => {
 
     const [exchanges, setExchanges] = useState([])
     const [loading, setLoading] = useState(true)
-    const [error, setError ] = useState(false)
+    const [error, setError] = useState(false)
 
     useEffect(() => {
         fetchExchanges().then((res) => {
             setExchanges(res)
             setLoading(false)
-        }).catch((err)=>{
+        }).catch((err) => {
             setLoading(false)
             setError(true)
         })
     }, [])
 
-    if (error) return <h1>Error</h1>
+
+    if (error) {
+        return (
+            <Fragment>
+                <Alert status='error'>
+  <AlertIcon />
+  <AlertTitle>Your browser is outdated!</AlertTitle>
+  <AlertDescription>Your Chakra experience may be degraded.</AlertDescription>
+</Alert>
+                <Error message={"Error while fetching the data!!"} />
+
+                </Fragment>
+        )
+    }
+
     console.log(exchanges, "stat")
     return (
         <Fragment>
