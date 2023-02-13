@@ -1,8 +1,8 @@
 import { Heading, Image, VStack, Text } from "@chakra-ui/react"
 
-const ExchangeCard = ({ mame, img, rank, url }) => {
+const CoinCard = ({ id, name, img, symbol,price, currencySymbol="₹" }) => {
     return (
-        <a href={url} target={"blank"}>
+        <a href={`/coin/${id}`} target={"blank"}>
             <VStack w={"32"}
                 shadow={"lg"}
                 p={"8"}
@@ -22,12 +22,14 @@ const ExchangeCard = ({ mame, img, rank, url }) => {
                     alt="Exchange"
                 />
                 <Heading size={"md"} noOfLines={1}>
-                    {rank}
+                    {symbol}
                 </Heading>
                 <Text noOfLines={1}>{name}</Text>
+                <Text noOfLines={1}>{price ? `${currencySymbol}${price}`:"NA"}</Text>
+
             </VStack>
         </a>
     )
 }
 
-export default ExchangeCard;
+export default CoinCard;
