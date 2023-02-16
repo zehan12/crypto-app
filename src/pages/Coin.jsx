@@ -21,13 +21,7 @@ const Coin = () => {
 
     const toast = useToast()
 
-    const buttons = new Array(132).fill("x")
-
-    // const currencySet = {
-    //     inr:""
-    // }
-
-
+    const buttons = new Array(132).fill("_")
 
     const currencySymbol = currency === "inr" ? "₹" : currency === "eur" ? "€" : "$";
 

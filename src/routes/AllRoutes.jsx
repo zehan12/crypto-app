@@ -10,10 +10,13 @@ const AllRoutes = () => {
         <Fragment>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/coins" element={<Coin />}>
-                    <Route path="/coins/:id" element={<CoinDetails />} />
-                </Route>
-                <Route path="/exchanges" element={<Exchanges />} />
+                <Route path="/coins" element={<Coin />} />
+                <Route 
+                path="/coins/:id" 
+                element={<CoinDetails />} 
+                />
+                <Route path="/exchanges" element={<Exchanges />}
+                />
             </Routes>
         </Fragment>
     )
